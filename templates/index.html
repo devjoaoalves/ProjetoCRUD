@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/index.css">
     <title>ProjetoCRUD</title>
 </head>
 <body>
@@ -10,7 +11,29 @@
     <p>Este é um exemplo de aplicação CRUD.</p>
     <p>Você pode criar, ler, atualizar e excluir dados.</p>
     <p>Explore as funcionalidades disponíveis!</p>
-    <a href="teste">Teste</a>
-    <a href="foi.html">foi</a>
+
+    <h2>Aqui você pode criar usuários no banco de dados:</h2>
+    <form action='/submit' method="post">
+        <label for="name">Nome:</label>
+        <input type="text" id="name" name="name" required>
+        <button type="submit">Criar</button>
+    </form>
+    
+    <h2>Aqui você pode deletar um usuário no banco de dados:</h2>
+    <form action='/remove' method="post">
+        <label for="name">Nome:</label>
+        <input type="text" name="name" required>
+        <button type="submit">Deletar</button>
+    </form>
+
+    <h2>Aqui você pode atualizar um usuário no banco de dados:</h2>
+    <form action='/remove' method="post">
+        <label class="name_atual" for="name">Nome:</label>
+        <input class="input_update" type="text" name="name" required>
+        <label class="new_name" for="new_name">Novo nome:</label>
+        <input class="input_update" type="text" name="new_name" required>
+        <button type="submit">Atualizar</button>
+    </form>
+
 </body>
 </html>
