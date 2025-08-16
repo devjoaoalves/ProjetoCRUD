@@ -23,7 +23,7 @@ def remove():
     if request.method == 'POST':
         name = request.form['name']
         sessao = _Sessao()
-        usuario = sessao(name=name)
+        usuario = sessao.query(Usuario).filter_by(name=name).first()
         if usuario:
             sessao.delete(usuario)
             sessao.commit()
