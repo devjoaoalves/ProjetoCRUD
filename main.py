@@ -16,7 +16,6 @@ Base.metadata.create_all(engine)
 
 
 
-
 print()
 
 app = Flask(__name__)
