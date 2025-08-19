@@ -14,10 +14,6 @@ class Usuario(Base):
 
 Base.metadata.create_all(engine)
 
-
-
-print()
-
 app = Flask(__name__)
 
 from views import *
