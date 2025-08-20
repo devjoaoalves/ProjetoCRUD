@@ -40,3 +40,7 @@ def update():
             usuario.name = request.form['new_name']
             sessao.commit()
         return render_template('index.html')
+    
+@app.route('/read', methods=['POST', 'GET'])
+def read():
+    ...
