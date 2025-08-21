@@ -51,3 +51,10 @@ form{
     position: relative;
     float: left;
 }
+.painel h2{
+    display: inline;
+    margin-inline-start: 10px;
+}
+.botao_atualizar{
+    top: 0;
+}

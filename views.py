@@ -6,8 +6,10 @@ from flask import render_template, request
 # rotas
 
 @app.route('/')
-def index():    
-    return render_template('index.html')
+def index():
+    sessao = _Sessao()
+    usuarios = sessao.query(Usuario)
+    return render_template('index.html', usuarios=usuarios)
 
 @app.route('/create', methods=['POST', 'GET'])
 def submit():
@@ -41,6 +43,12 @@ def update():
             sessao.commit()
         return render_template('index.html')
     
-@app.route('/read', methods=['POST', 'GET'])
-def read():
-    ...
+# @app.route('/read')
+# def read():
+#     name = Usuario(name)
+#     sessao = _Sessao()
+#     usuario = sessao.query(Usuario).filter_by(name=name).first()
+#     for conta in usuario:
+#         lista = list[conta]
+#         return render_template('index.html', lista)
+    
