@@ -58,3 +58,8 @@ form{
 .botao_atualizar{
     top: 0;
 }
+li{
+    text-align: center;
+    text-decoration: none;
+    list-style-type: none;
+}
