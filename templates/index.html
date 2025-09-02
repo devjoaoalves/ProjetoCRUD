@@ -18,6 +18,21 @@
             <label for="name">Nome:</label>
             <input type="text" id="name" name="name" required>
             <button type="submit">Criar</button>
+
+        
+                
+         {% with messages = get_flashed_messages() %}
+          {% if messages %}
+           <ul class="alert">
+            {% for message in messages %}
+             <p>{{ message }}</p>
+            {% endfor %}
+            {{ error }}
+           </ul>
+          {% endif %}
+         {% endwith %}
+                
+        {% block body %}{% endblock %}
         </form>
         
         <h2>Aqui você pode deletar um usuário no banco de dados:</h2>

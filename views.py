@@ -1,8 +1,11 @@
 from main import app
 from main import *
 from main import Usuario, _Sessao
-from flask import render_template, request, redirect
+from flask import render_template, request, redirect, url_for, flash
+from os import *
 import pyautogui
+
+app.secret_key = 'macacos_me_mordam_mds'
 
 # rotas
 
@@ -15,13 +18,20 @@ def index():
 @app.route('/create', methods=['POST', 'GET'])
 def submit():
     if request.method == 'POST':
+        error = None
         name = request.form['name']
         sessao = _Sessao()
         usuario = Usuario(name=name)
-        sessao.add(usuario)
-        sessao.commit()
-        pyautogui.hotkey('f5')
-    return render_template('/')
+
+        if name == sessao.query(Usuario).filter_by(name=name).first():  
+            flash('Já existe um usuário com esse nome.')
+            return render_template('index.html')
+        else:
+            # flash('Usuário adicionado com sucesso!')
+            sessao.add(usuario)
+            sessao.commit()
+            pyautogui.hotkey('f5')
+    return render_template('index.html')
 
 @app.route('/remove', methods = ['POST', 'GET'])
 def remove():
